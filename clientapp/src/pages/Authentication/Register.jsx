@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import {validateFullName, validateEmail, validatePassword, validateConfirmPassword} from '../../validators/inputValidators';
+import {register} from "../../requests/authRequests";
+import {useNavigate} from "react-router-dom";
+import {ROUTES} from "../../routes";
 
 function Register() {
+  const navigate  = useNavigate();
+
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPasswrod] = useState('')
@@ -32,7 +37,19 @@ function Register() {
     setConfirmPasswordError(confirmPasswordValidation.message??'');
 
     if(valid) {
-      // call api method
+      const user = {
+        name: name,
+        email: email,
+        password: password
+      }
+
+      register(user)
+      .then(() => {
+        navigate(ROUTES.LOGIN_PAGE);
+      })
+      .catch((err) => {
+        alert(err);
+      })
     }
   }
 
