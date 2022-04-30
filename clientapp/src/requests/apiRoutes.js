@@ -1,5 +1,8 @@
 export const API_ROUTES = {
-    AUTH: {
+    USER: {
         REGISTER: "api/users",
+    },
+    AUTH: {
+        LOGIN: "api/auth",
     },
 }

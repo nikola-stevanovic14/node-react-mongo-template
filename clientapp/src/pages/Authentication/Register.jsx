@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {validateFullName, validateEmail, validatePassword, validateConfirmPassword} from '../../validators/inputValidators';
-import {register} from "../../requests/authRequests";
+import {register} from "../../requests/userRequests";
 import {useNavigate} from "react-router-dom";
 import {ROUTES} from "../../routes";
 

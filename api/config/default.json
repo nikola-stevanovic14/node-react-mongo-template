@@ -1,5 +1,8 @@
 {
     "mongodb" : {
         "uri" : "mongodb://localhost:27017/appDb"
+    },
+    "jwt": {
+        "key": "Izb9hsGPX6c6HPSAYWw4LWCM8K61HR4v"
     }
 }

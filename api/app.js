@@ -4,6 +4,7 @@ const cors = require('cors');
 const mongoose = require("mongoose");
 const config = require("config");
 const userRouter = require('./routes/userRouter')
+const authRouter = require('./routes/authRouter')
 
 const app = express();
 const port = 5000;
@@ -24,5 +25,6 @@ mongoose.connect(
 
 
 app.use('/api/users', userRouter)
+app.use('/api/auth', authRouter)
 
 app.listen(port, () => console.log(`API listening on port ${port}!`));

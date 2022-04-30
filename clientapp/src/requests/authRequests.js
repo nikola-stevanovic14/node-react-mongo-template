@@ -1,4 +1,4 @@
 import {postRequest} from "./core";
 import {API_ROUTES} from "./apiRoutes"
 
-export const register = (user) => postRequest(API_ROUTES.AUTH.REGISTER, user);
+export const login = (user) => postRequest(API_ROUTES.AUTH.LOGIN, user);
