@@ -17,11 +17,10 @@ function MainMenu({ Component }) {
 
     return (
         <>
-            <div 
-                style={{ margin: "0px 30px 10px 30px", height: "100%" }}>
-                <div style={{ height: "70px", borderBottom: "2px solid #ddd", marginLeft: "10px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <div style={{ padding: "5px 30px 5px 30px", flexGrow: "1", display: "flex", flexDirection: "column"}}>
+                <div style={{borderBottom: "2px solid #ddd", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                     <div style={{ flex: "1 1 0" }}>
-                        <img src={logoImage} alt="logo" style={{ width: "70px", height: "70px" }} />
+                        <img src={logoImage} alt="logo" style={{ width: "70px", height: "70px", marginLeft: "10px"}} />
                     </div>
                     <div style={{ flex: "1 1 0", display: "flex", alignItems: "center", justifyContent: "center" }}>
                         <Button variant="text" color="success" >Page 1</Button>
@@ -32,7 +31,7 @@ function MainMenu({ Component }) {
                         <p style={{ marginRight: "20px" }}>Hello, {user.name}</p>
                         <AccountCircleIcon color="success" sx={{ fontSize: 35 }} />
                         <Button 
-                            style={{ height: "37px", marginLeft: "20px" }} color="success" variant="outlined"
+                            style={{marginLeft: "20px" }} color="success" variant="outlined"
                             onClick={handleLogOut}
                         >
                             Log out
@@ -40,8 +39,8 @@ function MainMenu({ Component }) {
                     </div>
                 </div>
                 <Component />
-                <div style={{ height: "50px", borderTop: "2px solid #ddd", width: "100%", position: "absolute", bottom: "0", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <label>&copy; Nikola Stevanovic 2022</label>
+                <div style={{ marginTop: "auto", height: "50px", borderTop: "2px solid #ddd", width: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <label>&copy; Никола Стевановић 2022</label>
                 </div>
             </div>
         </>

@@ -12,8 +12,16 @@ code {
     monospace;
 }
 
-html, 
+html,
 body,
 #root {
     height: 100%;
+}
+html,
+body {
+  overflow-x: hidden;
+}
+#root {
+  display: flex;
+  flex-direction: column;
 }
