@@ -11,13 +11,14 @@ import Home from './pages/Home';
 import ForgotPassword from './pages/Authentication/ForgotPassword';
 import Register from './pages/Authentication/Register';
 import PrivateRoute from './pages/PrivateRoute';
+import MainMenu from './components/layouts/MainMenu';
 
 
 function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path={ROUTES.HOME_PAGE} element={<PrivateRoute Component={Home}/>} />
+      <Route path={ROUTES.HOME_PAGE} element={<PrivateRoute Render={<MainMenu Component={Home}/>}/>} />
       <Route path={ROUTES.LOGIN_PAGE} element={<Authentication Component={Login}/>} />
       <Route path={ROUTES.FORGOT_PASSWORRD_PAGE} element={<Authentication Component={ForgotPassword}/>}/>
       <Route path={ROUTES.REGISTER_PAGE} element={<Authentication Component={Register}/>}/>
