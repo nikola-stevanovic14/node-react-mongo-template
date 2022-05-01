@@ -28,7 +28,8 @@ const usersSchema = new mongoose.Schema({
     }
 });
 
-usersSchema.methods.createJwtToken = () =>
-    jwt.sign({email: this.email, name: this.name, enabled: this.enabled, roles: this.roles}, config.jwt.key, {});
+usersSchema.methods.createJwtToken = function () {
+    return jwt.sign({sub: this._id, email: this.email, name: this.name, enabled: this.enabled, roles: this.roles}, config.jwt.key, {});
+}
 
 module.exports = mongoose.model('Users', usersSchema);
