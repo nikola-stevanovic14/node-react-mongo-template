@@ -12,13 +12,15 @@ import ForgotPassword from './pages/Authentication/ForgotPassword';
 import Register from './pages/Authentication/Register';
 import PrivateRoute from './pages/PrivateRoute';
 import MainMenu from './components/layouts/MainMenu';
-
+import ROLES from './constants/roles'
+import UserManagement from './pages/UserManagement';
 
 function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path={ROUTES.HOME_PAGE} element={<PrivateRoute Render={<MainMenu Component={Home}/>}/>} />
+      <Route path={ROUTES.HOME_PAGE} element={<PrivateRoute Render={<MainMenu Component={Home}/>} roles={[]}/>} />
+      <Route path={ROUTES.USER_MANAGEMENT_PAGE} element={<PrivateRoute Render={<MainMenu Component={UserManagement}/>} roles={[ROLES.ADMIN]}/>} />
       <Route path={ROUTES.LOGIN_PAGE} element={<Authentication Component={Login}/>} />
       <Route path={ROUTES.FORGOT_PASSWORRD_PAGE} element={<Authentication Component={ForgotPassword}/>}/>
       <Route path={ROUTES.REGISTER_PAGE} element={<Authentication Component={Register}/>}/>
