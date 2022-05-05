@@ -44,7 +44,7 @@ export default function SettingActionsPopover({user, iconsFontSize}) {
             >
                 <PopoverContent
                     title = "Settings"
-                    width = "180px"
+                    width = "200px"
                     icon = {<SettingsIcon color = "disabled" sx={{ fontSize: 17 }}/>}
                     elements= {[
                         <PopoverContentElement

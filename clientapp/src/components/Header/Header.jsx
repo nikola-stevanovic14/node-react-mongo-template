@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {ROUTES} from "../../routes";
 import UserActionsPopover from "./UserActionsPopover";
 import SettingActionsPopover from "./SettingActionsPopover";
-import ROLES from "../../constants/roles"
+import {ROLES} from "../../constants/roles"
 
 function Header({ user }) {
     const iconsFontSize = 32;
@@ -22,7 +22,7 @@ function Header({ user }) {
                 <div style={{ flex: "1 1 0", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", flex: "1 1 0" }}>
-                    {user.roles.includes(ROLES.ADMIN) ? 
+                    {user.roles.includes(ROLES.ADMIN.value) ? 
                         <SettingActionsPopover user= {user} iconsFontSize = {iconsFontSize}/>
                         : ''
                     }
