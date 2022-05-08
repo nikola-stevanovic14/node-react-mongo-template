@@ -37,7 +37,7 @@ export default function UserActionsPopover({user, iconsFontSize}) {
             <div aria-describedby={id} onClick={handleClick} style={{display: "flex", justifyContent: "center", alignItems: "center", cursor: "pointer"}}>
                 <AccountCircleIcon color="success" sx={{ fontSize: iconsFontSize }} />
                 <div style={{display: "flex", flexDirection: "column", alignItems: "center", margin: "12px 3px 0px 7px"}}>
-                    <span>{user.name}</span>
+                    <span style={{textAlign: "center"}}>{user.name}</span>
                     <span style={{fontSize: "10px"}}>{rolesPrettyPrint(user.roles).toUpperCase()}</span>
                 </div>  
                 <KeyboardArrowDownIcon color="success" sx={{ marginTop: 0.5 }}/>

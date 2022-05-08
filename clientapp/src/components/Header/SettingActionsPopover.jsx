@@ -22,7 +22,7 @@ export default function SettingActionsPopover({user, iconsFontSize}) {
     const id = open ? 'simple-popover' : undefined;
 
     return (
-        <div style={{marginRight: "20px"}}>
+        <div style={{marginRight: "20px", marginLeft: "20px"}}>
             <div aria-describedby={id} onClick={handleClick} style={{display: "flex", justifyContent: "center", alignItems: "center", cursor: "pointer"}}>
                 <SettingsIcon color="success" sx={{ fontSize: iconsFontSize }} />
                 <p style={{ marginRight: "3px", marginLeft: "7px" }}>Settings</p>

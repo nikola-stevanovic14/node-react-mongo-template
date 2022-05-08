@@ -4,6 +4,7 @@ const Users = require('../database/users')
 const bcrypt = require('bcrypt');
 const {authToken, authEnabled, authRole} = require('../middleware/authMiddleware');
 const {ROLES} = require('../permissions/roles');
+const ObjectId = require('mongodb').ObjectId;
 
 router.post('/', 
 async (req, res) => {
@@ -36,6 +37,7 @@ async (req, res) => {
     const model = [];
     users.forEach(user => {
         model.push({
+            id: user._id,
             email: user.email,
             name: user.name,
             enabled: user.enabled,
@@ -44,6 +46,17 @@ async (req, res) => {
     });
 
     res.send(model);
-})
+});
+
+router.get("/enabled",
+authToken(),
+authEnabled(),
+authRole([ROLES.ADMIN]),
+async (req, res) => {
+    const userId = req.query.userId;
+    const enabled = req.query.enabled;
+    await Users.updateOne({_id: ObjectId(userId)}, {$set: {enabled, enabled}});
+    return res.sendStatus(200);
+});
 
 module.exports = router;

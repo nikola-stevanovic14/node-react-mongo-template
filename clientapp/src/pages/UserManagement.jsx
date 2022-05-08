@@ -7,7 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import {userManagement} from '../requests/userRequests';
+import {userEnabled, userManagement} from '../requests/userRequests';
 import Checkbox from '@mui/material/Checkbox';
 import Box from '@mui/material/Box';
 import { rolesPrettyPrint } from '../constants/roles';
@@ -36,6 +36,20 @@ const UserManagement = () => {
         }
     }
 
+    const handleEnabledChange = (userId, value, index) => {
+        userEnabled(userId, value)
+        .then(() => {
+            const users = [...data];
+            const user = users[index];
+            user.enabled = value;
+            users[index] = user;
+            setData(users);
+        })
+        .catch((err) => {
+            alert(err);
+        })
+    }
+
     return (
         <div style={{height: "100%", backgroundColor: "#E8DB7D", marginTop: "15px", marginBottom: "15px", borderRadius: "6px"}}>
             <Typography variant="h5" gutterBottom component="div" sx={{marginTop: "15px", color: "#fff"}} align="center">
@@ -53,7 +67,7 @@ const UserManagement = () => {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {data.map((row) => (
+                            {data.map((row, i) => (
                                 <TableRow
                                 key={row.email}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -65,7 +79,7 @@ const UserManagement = () => {
                                         {row.email}
                                     </TableCell>
                                     <TableCell>
-                                        <Checkbox checked={row.enabled} color="success" />
+                                        <Checkbox checked={row.enabled} color="success" onChange = {(e) => handleEnabledChange(row.id, e.target.checked, i)}/>
                                     </TableCell>
                                     <TableCell>
                                         <Box sx={{
