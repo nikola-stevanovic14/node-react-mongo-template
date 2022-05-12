@@ -1,0 +1,22 @@
+.modal-header {
+    display: flex;
+    border-bottom: 1px solid #ddd; 
+    background-color: #f4f5f7;
+    padding: 0px 20px 0px 20px
+}
+
+.modal-body {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 0px 20px 0px 20px
+}
+
+.modal-footer {
+    margin-top: auto; 
+    display: flex; 
+    justify-content: center; 
+    padding-top: 20px; 
+    border-top: 1px solid #ddd; 
+    background-color: #f4f5f7;
+    padding: 10px 20px 10px 20px
+}

@@ -59,4 +59,15 @@ async (req, res) => {
     return res.sendStatus(200);
 });
 
+router.put("/changeRoles",
+authToken(),
+authEnabled(),
+authRole([ROLES.ADMIN]),
+async (req, res) => {
+    const userId = req.body.userId;
+    const roles = req.body.roles;
+    await Users.updateOne({_id: ObjectId(userId)}, {$set: {roles, roles}});
+    return res.sendStatus(200);
+})
+
 module.exports = router;
