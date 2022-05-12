@@ -15,6 +15,7 @@ import Button from '@mui/material/Button';
 import RoleModal from '../components/UserManagement/RoleModal';
 import {changeRoles} from '../requests/userRequests';
 import InfoModal from '../components/Modals/InfoModal';
+import Tooltip from '@mui/material/Tooltip';
 
 
 const UserManagement = () => {
@@ -111,12 +112,12 @@ const UserManagement = () => {
                 /> 
                 : ''
             }
-            <div style={{height: "100%", backgroundColor: "#f5f5f5", marginTop: "15px", marginBottom: "15px", borderRadius: "4px"}}>
+            <div style={{height: "100%", backgroundColor: "#f5f5f5", marginTop: "15px", marginBottom: "15px", borderRadius: "1px"}}>
                 <Typography variant="h5" gutterBottom component="div" sx={{marginTop: "2%"}} align="center">
                     User Management
                 </Typography>
-                <div style={{margin: "2% 7% 1% 7%", boxShadow: "0px 5px 15px 15px rgb(0, 0, 0, 0.17)"}}>  
-                    <TableContainer sx={{borderRadius: "2px"}}>
+                <div style={{margin: "2% 7% 1% 7%", boxShadow: "0px 5px 15px 15px rgb(0, 0, 0, 0.17)", borderRadius: "3px"}}>  
+                    <TableContainer sx={{borderRadius: "3px"}}>
                         <Table sx={{ minWidth: 400 }} aria-label="simple table">
                             <TableHead sx={{backgroundColor: "#9cbbe3"}}>
                                 <TableRow>
@@ -141,24 +142,32 @@ const UserManagement = () => {
                                             {row.email}
                                         </TableCell>
                                         <TableCell>
-                                            <Checkbox checked={row.enabled} color="success" onChange = {(e) => handleEnabledChange(row.id, row.roles, e.target.checked, i)}/>
+                                            <Tooltip placement="top" title={row.enabled ? "Disable" : "Enable"} arrow>
+                                                <Checkbox checked={row.enabled} color="success" onChange = {(e) => handleEnabledChange(row.id, row.roles, e.target.checked, i)}/>
+                                            </Tooltip>
                                         </TableCell>
                                         <TableCell onClick={() => handleRoleClick(row)}>
-                                            <Box 
-                                                sx={{
-                                                    backgroundColor: roleColor(row.roles), 
-                                                    color: "white", 
-                                                    textAlign: "center",
-                                                    padding: "5px 0px 5px 0px",
-                                                    width: "150px",
-                                                    fontSize: "12px",
-                                                    cursor: "pointer"
-                                                }}    
+                                            <Tooltip 
+                                                placement="top" 
+                                                title={row.roles.includes(ROLES.ADMIN.value) ? "You cannot change the administrator role" : "Click to change role"} 
+                                                arrow
                                             >
-                                                {row.roles && row.roles.length > 0 ? rolesPrettyPrint(row.roles).toUpperCase() : 
-                                                    <Button color='success'>Add Role</Button>
-                                                }
-                                            </Box>
+                                                <Box 
+                                                    sx={{
+                                                        backgroundColor: roleColor(row.roles), 
+                                                        color: "white", 
+                                                        textAlign: "center",
+                                                        padding: "5px 0px 5px 0px",
+                                                        width: "150px",
+                                                        fontSize: "12px",
+                                                        cursor: "pointer"
+                                                    }}    
+                                                >
+                                                    {row.roles && row.roles.length > 0 ? rolesPrettyPrint(row.roles).toUpperCase() : 
+                                                        <Button color='success'>Add Role</Button>
+                                                    }
+                                                </Box>
+                                            </Tooltip>
                                         </TableCell>
                                     </TableRow>
                                 ))}

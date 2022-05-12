@@ -44,7 +44,7 @@ async (req, res) => {
             roles: user.roles
         });
     });
-
+    model.sort();
     res.send(model);
 });
 

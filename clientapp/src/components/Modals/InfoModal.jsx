@@ -30,7 +30,7 @@ const InfoModal = ({isOpen, handleClose, title, message}) => {
       >
           <div className='modal-header'>
             <h3 style={{flex: "1 1", textAlign: "center", fontWeight: "500"}}>{title}</h3>
-            <span><InfoIcon color="action" sx={{paddingTop: "4px", margin: "auto"}}/></span>
+            <span style={{paddingTop: "4px", margin: "auto"}}><InfoIcon color="disabled"/></span>
           </div>
           <div className='modal-body'>
             <h3 style={{textAlign: "center", fontWeight: "400"}}>{message}</h3>

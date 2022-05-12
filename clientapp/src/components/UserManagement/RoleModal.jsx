@@ -15,11 +15,14 @@ const customStyles = {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      width: '30%',
+      width: '40%',
       height: '40%',
       display: 'flex',
       flexDirection: 'column',
-      padding: 'unset'
+      padding: 'unset',
+      '@media (max-width: 640px)': {
+        width: '75%',
+      }
     },
 };
 
