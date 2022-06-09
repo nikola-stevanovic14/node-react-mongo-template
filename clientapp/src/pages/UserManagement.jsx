@@ -164,7 +164,7 @@ const UserManagement = () => {
                                                     }}    
                                                 >
                                                     {row.roles && row.roles.length > 0 ? rolesPrettyPrint(row.roles).toUpperCase() : 
-                                                        <Button color='success'>Add Role</Button>
+                                                        <Button color='success'>No Role</Button>
                                                     }
                                                 </Box>
                                             </Tooltip>

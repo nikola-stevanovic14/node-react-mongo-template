@@ -11,7 +11,7 @@ import Home from './pages/Home';
 import ForgotPassword from './pages/Authentication/ForgotPassword';
 import Register from './pages/Authentication/Register';
 import PrivateRoute from './pages/PrivateRoute';
-import MainMenu from './components/layouts/MainMenu';
+import MainMenu from './components/Layouts/MainMenu';
 import {ROLES} from './constants/roles'
 import UserManagement from './pages/UserManagement';
 

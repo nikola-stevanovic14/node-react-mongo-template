@@ -40,7 +40,7 @@ export default function UserActionsPopover({user, iconsFontSize}) {
                     <span style={{textAlign: "center"}}>{user.name}</span>
                     <span style={{fontSize: "10px"}}>{rolesPrettyPrint(user.roles).toUpperCase()}</span>
                 </div>  
-                <KeyboardArrowDownIcon color="success" sx={{ marginTop: 0.5 }}/>
+                <KeyboardArrowDownIcon color="success" sx={{ marginTop: 0.4 }}/>
             </div>
             <Popover
                 id={id}

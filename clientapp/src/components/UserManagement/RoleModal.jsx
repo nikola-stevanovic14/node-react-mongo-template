@@ -15,7 +15,7 @@ const customStyles = {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      width: '40%',
+      width: '35%',
       height: '40%',
       display: 'flex',
       flexDirection: 'column',
@@ -79,7 +79,7 @@ const RoleModal = ({isOpen, handleClose, handleRolesChanged, userId, userName, c
             <ThemeProvider theme={cancleBtnTheme}>
               <Button color="neutral" variant="contained" onClick={handleClose} sx={{marginRight: "10px", backgroundColor: "#64748B"}}>Cancel</Button>
             </ThemeProvider>
-            <Button disabled={!allowSave} variant="contained" sx={{marginLeft: "10px"}} onClick={() => handleRolesChanged(userId, userRoles.map(x=> {return x.value}))} >Save Changes</Button>  
+            <Button disabled={!allowSave} variant="contained" sx={{marginLeft: "10px"}} onClick={() => handleRolesChanged(userId, userRoles.map(x=> {return x.value}))} >Save</Button>  
         </div>
       </Modal>
     </div>
